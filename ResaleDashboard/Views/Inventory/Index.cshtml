@@ -1,0 +1,82 @@
+﻿@model IEnumerable<ResaleDashboard.Models.Inventory>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New Inventory Item", "Create")
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.InvID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Brand)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Category)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Size)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Source)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.COG)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StockOnHand)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Location)
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.InvID)
+            </td>
+            <td>
+                @Html.DisplayNameFor(model => model.Brand)
+            </td>
+            <td>
+                @Html.DisplayNameFor(model => model.Category)
+            </td>
+            <td>
+                @Html.DisplayNameFor(model => model.Size)
+            </td>
+            <td>
+                @Html.DisplayNameFor(model => model.Description)
+            </td>
+            <td>
+                @Html.DisplayNameFor(model => model.Source)
+            </td>
+            <td>
+                @Html.DisplayNameFor(model => model.COG)
+            </td>
+            <td>
+                @Html.DisplayNameFor(model => model.StockOnHand)
+            </td>
+            <td>
+                @Html.DisplayNameFor(model => model.Location)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.InvID })
+                @Html.ActionLink("Details", "Details", new { id = item.InvID })
+                @Html.ActionLink("Delete", "Delete", new { id = item.InvID })
+            </td>
+        </tr>
+    }
+</table>
+
+

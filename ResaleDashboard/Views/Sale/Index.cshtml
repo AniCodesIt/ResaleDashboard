@@ -1,0 +1,62 @@
+﻿@model IEnumerable<ResaleDashboard.Models.Sale>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New Sale Record", "Create")
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.SaleID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PlatformID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InvID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SaleDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SalePrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Profit)
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.SaleID)
+            </td>
+            <td>
+                @Html.DisplayNameFor(model => model.PlatformID)
+            </td>
+            <td>
+                @Html.DisplayNameFor(model => model.InvID)
+            </td>
+            <td>
+                @Html.DisplayNameFor(model => model.SaleDate)
+            </td>
+            <td>
+                @Html.DisplayNameFor(model => model.SalePrice)
+            </td>
+            <td>
+                @Html.DisplayNameFor(model => model.Profit)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.SaleID })
+                @Html.ActionLink("Details", "Details", new { id = item.SaleID })
+                @Html.ActionLink("Delete", "Delete", new { id = item.SaleID })
+            </td>
+        </tr>
+    }
+</table>
