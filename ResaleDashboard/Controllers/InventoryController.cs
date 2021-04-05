@@ -15,5 +15,10 @@ namespace ResaleDashboard.Controllers
         {
             return View(_db.Inventories.ToList());
         }
+        // Get: Inventory/Create
+        public ActionResult Create()
+        {
+            return View();
+        }
     }
 }
