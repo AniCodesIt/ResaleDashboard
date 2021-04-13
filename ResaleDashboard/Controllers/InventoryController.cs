@@ -11,14 +11,22 @@ namespace ResaleDashboard.Controllers
     {
         private InventoryDbContext _db = new InventoryDbContext();
         // GET: Inventory
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Index()
         {
             return View(_db.Inventories.ToList());
         }
         // Get: Inventory/Create
-        public ActionResult Create()
+        public ActionResult Create(Inventory inventory)
         {
-            return View();
+            if (ModelState.IsValid)
+            {
+                _db.Inventories.Add(inventory);
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(inventory);
         }
     }
 }

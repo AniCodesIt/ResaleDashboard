@@ -16,9 +16,17 @@ namespace ResaleDashboard.Controllers
             return View(_db.Platforms.ToList());
         }
         // Get: Platform/Create
-        public ActionResult Create()
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(Platform platform)
         {
-            return View();
+            if (ModelState.IsValid)
+            {
+                _db.Platforms.Add(platform);
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(platform);
         }
     }
 }

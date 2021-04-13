@@ -16,9 +16,17 @@ namespace ResaleDashboard.Controllers
             return View(_db.Sales.ToList());
         }
         // Get: Sale/Create
-        public ActionResult Create()
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(Sale sale)
         {
-            return View();
+            if (ModelState.IsValid)
+            {
+                _db.Sales.Add(sale);
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(sale);
         }
     }
 }
