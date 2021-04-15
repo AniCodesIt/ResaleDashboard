@@ -1,6 +1,7 @@
 ﻿using ResaleDashboard.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -42,6 +43,34 @@ namespace ResaleDashboard.Controllers
             }
             return View(platform);
 
+        }
+        // Get: Platform/Edit{id}
+        public ActionResult Edit(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+
+            }
+            Platform platform = _db.Platforms.Find(id);
+            if (platform == null)
+            {
+                return HttpNotFound();
+            }
+            return View(platform);
+        }
+        //POST: Platform/Edit{id}
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(Platform platform)
+        {
+            if (ModelState.IsValid)
+            {
+                _db.Entry(platform).State = EntityState.Modified;
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(platform);
         }
     }
 }

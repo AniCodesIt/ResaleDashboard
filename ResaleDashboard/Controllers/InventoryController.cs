@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Data.Entity;
 
 namespace ResaleDashboard.Controllers
 {
@@ -42,7 +43,34 @@ namespace ResaleDashboard.Controllers
                 return HttpNotFound();
             }
             return View(inventory);
-
+        }
+        // Get: Inventory/Edit{id}
+        public ActionResult Edit(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                
+            }
+            Inventory inventory = _db.Inventories.Find(id);
+            if (inventory == null)
+            {
+                return HttpNotFound();
+            }
+            return View(inventory);
+        }
+        //POST: Inventory/Edit{id}
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(Inventory inventory)
+        {
+            if (ModelState.IsValid)
+            {
+                _db.Entry(inventory).State = EntityState.Modified;
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(inventory);
         }
     }
 }
