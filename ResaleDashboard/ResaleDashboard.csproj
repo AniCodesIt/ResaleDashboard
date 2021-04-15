@@ -182,6 +182,9 @@
     <Content Include="Views\Inventory\Create.cshtml" />
     <Content Include="Views\Platform\Create.cshtml" />
     <Content Include="Views\Sale\Create.cshtml" />
+    <Content Include="Views\Inventory\Delete.cshtml" />
+    <Content Include="Views\Platform\Delete.cshtml" />
+    <Content Include="Views\Sale\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

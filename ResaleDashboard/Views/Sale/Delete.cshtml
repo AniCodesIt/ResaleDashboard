@@ -1,0 +1,60 @@
+﻿@model ResaleDashboard.Models.Sale
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this sale?</h3>
+<div>
+    <h4>Sale</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(Model => Model.SaleID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(Model => Model.SaleID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(Model => Model.PlatformID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(Model => Model.PlatformID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(Model => Model.InvID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(Model => Model.InvID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(Model => Model.SaleDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(Model => Model.SaleDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(Model => Model.SalePrice)
+        </dt>
+        <dd>
+            @Html.DisplayFor(Model => Model.SalePrice)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(Model => Model.Profit)
+        </dt>
+        <dd>
+            @Html.DisplayFor(Model => Model.Profit)
+        </dd>
+        
+    </dl>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn btn-default" />
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

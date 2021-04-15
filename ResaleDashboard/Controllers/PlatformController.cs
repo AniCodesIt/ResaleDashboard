@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
@@ -27,6 +28,20 @@ namespace ResaleDashboard.Controllers
                 return RedirectToAction("Index");
             }
             return View(platform);
+        }
+        public ActionResult Delete(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Platform platform = _db.Platforms.Find(id);
+            if (platform == null)
+            {
+                return HttpNotFound();
+            }
+            return View(platform);
+
         }
     }
 }
