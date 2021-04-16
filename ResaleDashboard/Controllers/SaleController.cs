@@ -73,5 +73,20 @@ namespace ResaleDashboard.Controllers
             }
             return View(sale);
         }
+        // Get: Sale/Details{id}
+        public ActionResult Details(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+
+            }
+            Sale sale = _db.Sales.Find(id);
+            if (sale == null)
+            {
+                return HttpNotFound();
+            }
+            return View(sale);
+        }
     }
 }

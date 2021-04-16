@@ -72,5 +72,20 @@ namespace ResaleDashboard.Controllers
             }
             return View(platform);
         }
+        // Get: Platform/Details{id}
+        public ActionResult Details(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+
+            }
+            Platform platform = _db.Platforms.Find(id);
+            if (platform == null)
+            {
+                return HttpNotFound();
+            }
+            return View(platform);
+        }
     }
 }

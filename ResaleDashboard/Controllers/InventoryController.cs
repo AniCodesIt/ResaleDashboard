@@ -72,5 +72,20 @@ namespace ResaleDashboard.Controllers
             }
             return View(inventory);
         }
+        // Get: Inventory/Details{id}
+        public ActionResult Details(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+
+            }
+            Inventory inventory = _db.Inventories.Find(id);
+            if (inventory == null)
+            {
+                return HttpNotFound();
+            }
+            return View(inventory);
+        }
     }
 }
