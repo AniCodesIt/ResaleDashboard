@@ -9,17 +9,19 @@ using System.Web.Mvc;
 
 namespace ResaleDashboard.Controllers
 {
+    [RoutePrefix("api/Platform")]
     public class PlatformController : Controller
     {
         private PlatformDbContext _db = new PlatformDbContext();
         // GET: Platform
+        [HttpGet]
         public ActionResult Index()
         {
             return View(_db.Platforms.ToList());
         }
         // Get: Platform/Create
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         public ActionResult Create(Platform platform)
         {
             if (ModelState.IsValid)
@@ -61,7 +63,7 @@ namespace ResaleDashboard.Controllers
         }
         //POST: Platform/Edit{id}
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         public ActionResult Edit(Platform platform)
         {
             if (ModelState.IsValid)

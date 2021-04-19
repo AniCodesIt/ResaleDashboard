@@ -9,17 +9,18 @@ using System.Web.Mvc;
 
 namespace ResaleDashboard.Controllers
 {
+    [RoutePrefix("api/Sale")]
     public class SaleController : Controller
     {
         private SaleDbContext _db = new SaleDbContext();
-        //[Route("Sale/Index")]
+        [Route("Index")]
         [HttpGet]
         //[ValidateAntiForgeryToken]
         public ActionResult Index()
         {
             return View(_db.Sales.ToList());
-        }  
-        //[Route("Sale/Create")]
+        }
+        [Route("Create")]
         [HttpGet]
         //[ValidateAntiForgeryToken]
         public ActionResult Create(Sale sale)
@@ -62,7 +63,7 @@ namespace ResaleDashboard.Controllers
         }
         //POST: Sale/Edit{id}
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         public ActionResult Edit(Sale sale)
         {
             if (ModelState.IsValid)

@@ -9,12 +9,13 @@ using System.Data.Entity;
 
 namespace ResaleDashboard.Controllers
 {
+    [RoutePrefix("api/Inventory")]
     public class InventoryController : Controller
     {
         private InventoryDbContext _db = new InventoryDbContext();
         // GET: Inventory
-        [HttpPost]
-        [ValidateAntiForgeryToken]
+        [HttpGet]
+        //[ValidateAntiForgeryToken]
         public ActionResult Index()
         {
             return View(_db.Inventories.ToList());
@@ -47,7 +48,7 @@ namespace ResaleDashboard.Controllers
         // Get: Inventory/Edit{id}
         public ActionResult Edit(int? id)
         {
-            if (id == null)
+    if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
                 
@@ -61,7 +62,7 @@ namespace ResaleDashboard.Controllers
         }
         //POST: Inventory/Edit{id}
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         public ActionResult Edit(Inventory inventory)
         {
             if (ModelState.IsValid)
