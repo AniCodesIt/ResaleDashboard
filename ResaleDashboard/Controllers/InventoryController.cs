@@ -21,6 +21,12 @@ namespace ResaleDashboard.Controllers
             return View(_db.Inventories.ToList());
         }
         // Get: Inventory/Create
+        public ActionResult Create()
+        {
+            return View();
+        }
+        [HttpPost]
+        //[ValidateAntiForgeryToken]
         public ActionResult Create(Inventory inventory)
         {
             if (ModelState.IsValid)
@@ -45,6 +51,18 @@ namespace ResaleDashboard.Controllers
             }
             return View(inventory);
         }
+
+        // Post: Inventory/Delete{id}
+        [HttpPost, ActionName("Delete")]
+        //[ValidateAntiForgeryToken]
+        public ActionResult Delete(int id)
+        {
+            Inventory inventory = _db.Inventories.Find(id);
+            _db.Inventories.Remove(inventory);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
         // Get: Inventory/Edit{id}
         public ActionResult Edit(int? id)
         {

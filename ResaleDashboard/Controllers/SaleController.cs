@@ -21,7 +21,12 @@ namespace ResaleDashboard.Controllers
             return View(_db.Sales.ToList());
         }
         [Route("Create")]
-        [HttpGet]
+        [HttpGet]      
+        public ActionResult Create()
+        {
+            return View();
+        }
+        [HttpPost]
         //[ValidateAntiForgeryToken]
         public ActionResult Create(Sale sale)
         {
@@ -45,6 +50,16 @@ namespace ResaleDashboard.Controllers
                 return HttpNotFound();
             }
             return View(sale);
+        }
+        // Post: Sale/Delete{id}
+        [HttpPost, ActionName("Delete")]
+        //[ValidateAntiForgeryToken]
+        public ActionResult Delete(int id)
+        {
+            Sale sale = _db.Sales.Find(id);
+            _db.Sales.Remove(sale);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
         }
         // Get: Sale/Edit{id}
         public ActionResult Edit(int? id)

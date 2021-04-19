@@ -20,6 +20,10 @@ namespace ResaleDashboard.Controllers
             return View(_db.Platforms.ToList());
         }
         // Get: Platform/Create
+        public ActionResult Create()
+        {
+            return View();
+        }
         [HttpPost]
         //[ValidateAntiForgeryToken]
         public ActionResult Create(Platform platform)
@@ -44,8 +48,19 @@ namespace ResaleDashboard.Controllers
                 return HttpNotFound();
             }
             return View(platform);
-
         }
+
+        // Post: Platform/Delete{id}
+        [HttpPost, ActionName("Delete")]
+        //[ValidateAntiForgeryToken]
+        public ActionResult Delete(int id)
+        {
+            Platform platform = _db.Platforms.Find(id);
+            _db.Platforms.Remove(platform);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
         // Get: Platform/Edit{id}
         public ActionResult Edit(int? id)
         {
