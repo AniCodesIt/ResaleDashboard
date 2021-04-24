@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResaleDashboard", "ResaleDashboard\ResaleDashboard.csproj", "{56C35DD9-7B1E-4FEA-8ACE-1DCCA40B1BCA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Throwaway", "Throwaway\Throwaway.csproj", "{9B4A8BF6-3E9D-437D-9BED-F9207AC3190B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{56C35DD9-7B1E-4FEA-8ACE-1DCCA40B1BCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{56C35DD9-7B1E-4FEA-8ACE-1DCCA40B1BCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{56C35DD9-7B1E-4FEA-8ACE-1DCCA40B1BCA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B4A8BF6-3E9D-437D-9BED-F9207AC3190B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B4A8BF6-3E9D-437D-9BED-F9207AC3190B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B4A8BF6-3E9D-437D-9BED-F9207AC3190B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B4A8BF6-3E9D-437D-9BED-F9207AC3190B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
